@@ -1,0 +1,5 @@
+== This is a simple poll application
+
+Made on 8th week of DevBootcamp (www.devbootcamp.com).
+
+I have been learning ruby for 6 weeks now, and today starts the third week of my familiarity with rails.
