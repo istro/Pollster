@@ -3,5 +3,6 @@ www:
   exclude_bundler_groups:
     - development  
   postbuild: "rake assets:precompile"
+  postinstall: bash postinstall.sh
 db:
   type: postgresql
