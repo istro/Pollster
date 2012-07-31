@@ -1,4 +1,11 @@
 Pollster::Application.routes.draw do
+
+  resources :polls, :except => [:edit, :show]
+  root :to => 'polls#index'
+  
+  match 'polls/:edit_url' => 'polls#edit'
+  match '/:easy_url' => 'polls#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

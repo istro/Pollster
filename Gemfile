@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.7'
+gem 'less-rails-bootstrap'
 
 group :production do
 # necessary for deployment to heroku

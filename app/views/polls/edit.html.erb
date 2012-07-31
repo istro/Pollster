@@ -1,0 +1,13 @@
+
+<% if @poll %>
+  <div class="alert alert-success" style="margin:0 20px 0 20px !important">
+    <h3>Awesome! You're almost done.</h3>
+    <h4>Now select some questions, or add some custom ones to complete your poll.</h4>
+  </div>
+<%else%>
+  <div class="alert alert-error" style="margin:0 20px 0 20px !important">
+    <h3>Oops! Your feedback form must have expired.</h3>
+  </div>
+<%end%>
+
+<%= d @poll %>

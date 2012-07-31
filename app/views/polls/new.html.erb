@@ -1,0 +1,11 @@
+<%= form_for(@poll) do |f| %>
+  <%= f.label 'what would you like to get feedback on?' %>
+  <%= f.text_field :name %>
+
+
+  <%=f.label :description%>
+  <%=f.text_field :description%>
+
+<br>
+  <%= f.submit 'Create a poll ', :class => "btn btn-success" %>
+<%end%>
