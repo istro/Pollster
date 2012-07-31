@@ -1,9 +1,14 @@
 <%= form_for(@poll) do |f| %>
-  <%= f.label 'what would you like to get feedback on?' %>
+  <%= f.label 'Please enter your name:' %>
   <%= f.text_field :name %>
 
+  <%=f.label 'Your cell phone number with area code (for text notifications)'%>
+  <%=f.text_field :phone%>
 
-  <%=f.label :description%>
+  <%=f.label 'and your email address:' %>
+  <%=f.text_field :email%>
+
+  <%=f.label "optionally, you can give a short description (it will appear before the questions on the form)" %>
   <%=f.text_field :description%>
 
 <br>

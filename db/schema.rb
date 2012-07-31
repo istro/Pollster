@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120731044334) do
+ActiveRecord::Schema.define(:version => 20120731091433) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20120731044334) do
     t.string   "description"
     t.string   "easy_url"
     t.string   "edit_url"
+    t.string   "email",  :null => false
+    t.string   "phone"
   end
 
   create_table "questions", :force => true do |t|
