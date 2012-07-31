@@ -12,6 +12,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    Question.destroy(params[:id])
+    redirect_to "/polls/#{params[:edit_url]}"
   end
 
   def show

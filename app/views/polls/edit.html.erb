@@ -2,15 +2,21 @@
 <% if @poll %>
   <div class="alert alert-success" style="margin:0 20px 0 20px !important">
     <h3>Awesome! You're almost done.</h3>
-    <h4>Now add some questions to complete your feedback request.</h4>
+    <h4>Here you can add new questions to your feedback request. Or, if you like, you can <%= link_to 'delete this poll', "/delete/#param[:edit_url]", :class =>"btn btn-mini btn-danger" %></h4>
   </div>
   <div class="content" style="margin:20px 20px 0 20px !important">
+    <h4><%= @poll.description %></h4>
+    <br><br>
     <% @poll.questions.each do |question| %>
-      <h4><%= question.body %><h4>
-      <%= link_to 'Delete', "questions#delete", :class =>"btn btn-right btn-danger" %>
+      <h4><%= question.body %>&nbsp
+      <%= link_to 'delete', question_path(:id => question.id, :edit_url => @poll.edit_url), :method => 'delete', :class =>"btn btn-mini btn-right btn-danger" %>
+    <h4><br>
     <% end %>
-    <%= link_to 'Add a new question', new_question_path({:poll_id => @poll.id, :edit_url => @poll.edit_url}), :class =>"btn btn-success" %>    
-    <%= link_to 'Delete this poll', "/delete/#param[:edit_url]", :class =>"btn btn-danger" %>
+    <br>
+    <%= link_to 'Add a new question', new_question_path({:poll_id => @poll.id, :edit_url => @poll.edit_url}), :class =>"btn btn-warning" %>
+    <%= link_to 'Complete! Take me to the form!', new_question_path({:poll_id => @poll.id, :edit_url => @poll.edit_url}), :class =>"btn btn-success" %>
+    <br>
+    <h5>Give your friends this link to give you feedback - <a href="www.writemeabout.me/<%=@poll.easy_url%>"</h5>
   </div>
 <%else%>
   <div class="alert alert-error" style="margin:0 20px 0 20px !important">
