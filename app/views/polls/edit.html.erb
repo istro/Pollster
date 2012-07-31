@@ -2,7 +2,7 @@
 <% if @poll %>
   <div class="alert alert-success" style="margin:0 20px 0 20px !important">
     <h3>Awesome! You're almost done.</h3>
-    <h4>Here you can add new questions to your feedback request. Or, if you like, you can <%= link_to 'delete this poll', "/delete/#param[:edit_url]", :class =>"btn btn-mini btn-danger" %></h4>
+    <h4>Here you can add new questions to your feedback request. Or, if you like, you can <%= link_to 'delete this poll', "delete/#{@poll.edit_url}", :method => :delete, :class =>"btn btn-mini btn-danger" %></h4>
   </div>
   <div class="content" style="margin:20px 20px 0 20px !important">
     <h4><%= @poll.description %></h4>
@@ -14,9 +14,10 @@
     <% end %>
     <br>
     <%= link_to 'Add a new question', new_question_path({:poll_id => @poll.id, :edit_url => @poll.edit_url}), :class =>"btn btn-warning" %>
-    <%= link_to 'Complete! Take me to the form!', new_question_path({:poll_id => @poll.id, :edit_url => @poll.edit_url}), :class =>"btn btn-success" %>
-    <br>
-    <h5>Give your friends this link to give you feedback - <a href="www.writemeabout.me/<%=@poll.easy_url%>"</h5>
+    <%= link_to 'Complete! Take me to the form!', "http://www.writemeabout.me/"+@poll.easy_url, :class =>"btn btn-success" %>
+    <br><br>
+    <h4>Keep this link safe - that's where you can edit this poll: <a href="http://www.writemeabout.me/<%= @poll.edit_url %> ">www.writemeabout.me/<%= @poll.edit_url %></a></h4><br>
+    <h4>Give your friends this link to give you honest anonymous feedback: <a href="http://www.writemeabout.me/<%= @poll.easy_url %> ">www.writemeabout.me/<%= @poll.easy_url %></a></h4>
   </div>
 <%else%>
   <div class="alert alert-error" style="margin:0 20px 0 20px !important">

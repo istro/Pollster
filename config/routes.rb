@@ -7,7 +7,7 @@ Pollster::Application.routes.draw do
   
   match '/:easy_url' => 'polls#show'
   match 'polls/:edit_url' => 'polls#edit'
-  match 'delete/:edit_url' => 'polls#destroy'
+  match 'polls/delete/:edit_url' => 'polls#delete'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

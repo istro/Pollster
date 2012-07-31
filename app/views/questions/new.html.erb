@@ -3,7 +3,6 @@
   <%= f.text_field :body %>
   <%= f.hidden_field :poll_id, :value => params[:poll_id]%>
   <%= f.hidden_field :edit_url, :value => params[:edit_url]%>
+  <br>
   <%= f.submit 'Add this question', :class => "btn btn-success" %>
 <%end%>
-
-<%= d @question %>
