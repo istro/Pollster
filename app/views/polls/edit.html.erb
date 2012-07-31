@@ -2,13 +2,18 @@
 <% if @poll %>
   <div class="alert alert-success" style="margin:0 20px 0 20px !important">
     <h3>Awesome! You're almost done.</h3>
-    <h4>Now select some questions, or add some custom ones to complete your poll.</h4>
+    <h4>Now add some questions to complete your feedback request.</h4>
+  </div>
+  <div class="content" style="margin:20px 20px 0 20px !important">
+    <% @poll.questions.each do |question| %>
+      <h4><%= question.body %><h4>
+      <%= link_to 'Delete', "questions#delete", :class =>"btn btn-right btn-danger" %>
+    <% end %>
+    <%= link_to 'Add a new question', new_question_path({:poll_id => @poll.id, :edit_url => @poll.edit_url}), :class =>"btn btn-success" %>    
+    <%= link_to 'Delete this poll', "/delete/#param[:edit_url]", :class =>"btn btn-danger" %>
   </div>
 <%else%>
   <div class="alert alert-error" style="margin:0 20px 0 20px !important">
     <h3>Oops! Your feedback form must have expired.</h3>
   </div>
 <%end%>
-
-<%= d @poll %>
-<%= d @phone %>

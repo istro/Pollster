@@ -29,6 +29,8 @@ class PollsController < ApplicationController
   end
 
   def destroy
+    Poll.find_by_edit_url(params[:edit_url]).destroy
+    redirect_to '/'
   end
   
   private
