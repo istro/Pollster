@@ -42,7 +42,7 @@ class PollsController < ApplicationController
 
   def normalize_phone(num) 
     if  (num.count("0-9") != 10 && num.count("0-9") != 11)
-      'nobody here'
+      nil
     else
       num.gsub!(/[^0-9]/, '')
       num = num[1..-1] if num.length == 11
