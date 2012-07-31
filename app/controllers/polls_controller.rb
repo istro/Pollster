@@ -18,11 +18,12 @@ class PollsController < ApplicationController
     poll = poll.merge({:edit_url => id, :easy_url => easy})
     @poll = Poll.new(poll)
     if @poll.save
-      redirect_to "/#{id}"
+      redirect_to "/polls/#{id}"
     end
   end
   
   def show
+    @poll = Poll.find_by_easy_url(params[:easy_url])
   end
 
   def destroy
