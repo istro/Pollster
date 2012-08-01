@@ -21,6 +21,9 @@ class PollsController < ApplicationController
     # ideally, before saving i should send an email with confirmation link to click as email validation...
     if @poll.save
       redirect_to "/polls/#{id}"
+    else
+      raise "Could not save your poll. Please ensure all fields are filled out"
+      render 'polls/new'
     end
   end
   

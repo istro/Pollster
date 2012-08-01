@@ -7,11 +7,13 @@
   <div class="content" style="margin:20px 20px 0 20px !important">
     <h4><%= @poll.description %></h4>
     <br><br>
+
     <% @poll.questions.each do |question| %>
       <h4><%= question.body %>&nbsp
-      <%= link_to 'delete', question_path(:id => question.id, :edit_url => @poll.edit_url), :method => 'delete', :class =>"btn btn-mini btn-right btn-danger" %>
+      <%= link_to 'delete', question_path(:id => question.id, :edit_url => @poll.edit_url), :method => :delete, :class =>"btn btn-mini btn-right btn-danger" %>
     <h4><br>
     <% end %>
+
     <br>
     <%= link_to 'Add a new question', new_question_path({:poll_id => @poll.id, :edit_url => @poll.edit_url}), :class =>"btn btn-warning" %>
     <%= link_to 'Complete! Take me to the form!', "http://www.writemeabout.me/"+@poll.easy_url, :class =>"btn btn-success" %>
